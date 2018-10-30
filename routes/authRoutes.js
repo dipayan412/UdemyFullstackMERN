@@ -3,7 +3,7 @@ const passport = require('passport')
 module.exports = (app) => {
   var port = 'http://localhost:3000'
   if (process.env.NODE_ENV === 'production') {
-    port = ''
+    port = 'https://secret-depths-46841.herokuapp.com'
   }
   app.get(
     '/auth/google',
@@ -17,7 +17,7 @@ module.exports = (app) => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      res.redirect('/surveys')
+      res.redirect(port + '/surveys')
     }
   )
 
