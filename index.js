@@ -37,6 +37,10 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+app.use(function (req, res) {
+  res.redirect('/')
+})
+
 // app.get('/', (req, res) => {
 //   res.send({ bye: 'there' })
 // })
